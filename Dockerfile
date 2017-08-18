@@ -1,11 +1,11 @@
 FROM ruby:2.3.1
 LABEL description="Base container for Watir/Capybara tests against a local Chrome"
-LABEL version="1.0.0"
+LABEL version="1.0.1"
 MAINTAINER Lev Lozhkin <llozhkin@aurorasolar.com>
 
 # Install Chrome, Xvfb and utility packages (libav for video capture), clean up
 RUN set -ex \
-    && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+    && wget -q -O - http://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" \
         >> /etc/apt/sources.list.d/google.list' \
     && apt-get update \
